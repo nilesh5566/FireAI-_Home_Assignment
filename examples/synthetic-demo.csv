@@ -1,0 +1,101 @@
+date,time,item,category,in_stock,bought,price_rs,customer_type,note
+2026-11-20,09:18,jhumka,jewellery,y,y,120,student,customer checked the design
+2026-11-20,09:19,kajal,makeup,y,y,55,student,price confirmed
+2026-11-20,09:36,face powder,makeup,y,y,75,local,customer checked the design
+2026-11-20,09:37,scrunchie,hair,y,y,40,student,
+2026-11-20,09:40,nose pin,jewellery,n,n,35,local,out of stock
+2026-11-20,09:42,jhumka,jewellery,y,y,120,local,
+2026-11-20,09:43,mehndi cone,beauty,n,n,25,local,size not there
+2026-11-20,09:44,mehndi cone,beauty,y,y,25,student,
+2026-11-20,09:47,safety pin pack,accessories,y,n,10,student,price confirmed
+2026-11-20,10:02,hair pin pack,hair,y,y,15,local,
+2026-11-20,10:10,hair clip,hair,y,n,30,local,limited designs available
+2026-11-20,10:16,claw clip,hair,y,y,50,student,customer checked the design
+2026-11-20,10:22,claw clip,hair,y,y,50,student,
+2026-11-20,10:23,claw clip,hair,y,y,50,student,
+2026-11-20,10:23,lip balm,makeup,y,y,45,local,customer checked the design
+2026-11-20,10:25,maroon bindi,bindi,n,n,10,student,out of stock
+2026-11-20,10:28,comb,hair,y,y,25,local,
+2026-11-20,10:31,nose pin,jewellery,y,y,35,student,
+2026-11-20,10:43,hair clip,hair,y,y,30,student,
+2026-11-20,10:53,nail polish,makeup,y,n,40,local,out of stock
+2026-11-20,11:07,maroon bindi,bindi,y,y,25,local,customer checked the design
+2026-11-20,11:12,glass bangle 2.4,bangle,y,n,40,local,limited designs available
+2026-11-20,11:13,maroon bindi,bindi,y,y,15,student,
+2026-11-20,11:14,designer bindi,bindi,y,n,40,student,
+2026-11-20,11:16,dupatta pin,accessories,y,y,20,local,
+2026-11-20,11:20,nail polish,makeup,y,n,40,local,wanted a different size
+2026-11-20,11:20,glass bangle 2.4,bangle,n,n,40,student,customer asked for another colour
+2026-11-20,11:27,black bindi,bindi,y,y,20,student,
+2026-11-20,11:27,nose pin,jewellery,y,y,35,local,customer checked the design
+2026-11-20,11:37,dupatta pin,accessories,y,n,20,student,bought after checking designs
+2026-11-20,11:46,hair clip,hair,y,y,30,student,
+2026-11-20,11:46,dupatta pin,accessories,n,n,35,local,out of stock
+2026-11-20,11:47,dupatta pin,accessories,n,n,20,local,customer will visit later
+2026-11-20,12:01,face powder,makeup,n,n,75,local,out of stock
+2026-11-20,12:02,jhumka,jewellery,y,y,120,student,price confirmed
+2026-11-20,12:04,hair pin pack,hair,n,n,15,student,size not there
+2026-11-20,12:14,hair pin pack,hair,y,n,15,local,wanted a different size
+2026-11-20,12:20,mangalsutra,jewellery,n,n,150,local,out of stock
+2026-11-20,12:20,maroon bindi,bindi,n,n,15,local,customer will visit later
+2026-11-20,12:21,sindoor,makeup,y,y,25,local,
+2026-11-20,12:22,necklace set,jewellery,y,y,180,student,customer checked the design
+2026-11-20,12:28,mehndi cone,beauty,y,y,25,student,
+2026-11-20,12:29,comb,hair,y,n,25,student,
+2026-11-20,12:29,nose pin,jewellery,y,y,35,student,
+2026-11-20,12:29,scrunchie,hair,y,y,40,student,customer checked the design
+2026-11-20,12:29,nose pin,jewellery,n,n,35,local,out of stock
+2026-11-20,12:41,hair clip,hair,n,n,30,local,customer asked for another colour
+2026-11-20,12:45,glass bangle 2.6,bangle,y,y,45,local,
+2026-11-20,12:51,jhumka,jewellery,y,y,120,student,
+2026-11-20,13:07,claw clip,hair,n,n,50,student,out of stock
+2026-11-20,13:35,black bindi,bindi,y,y,20,student,
+2026-11-20,13:42,nail polish,makeup,y,y,40,local,customer checked the design
+2026-11-20,13:44,mangalsutra,jewellery,n,n,150,student,customer will visit later
+2026-11-20,13:56,hair pin pack,hair,y,n,15,student,limited designs available
+2026-11-20,14:14,hair clip,hair,y,y,30,student,price confirmed
+2026-11-20,14:15,safety pin pack,accessories,y,y,10,student,
+2026-11-20,14:16,safety pin pack,accessories,y,n,10,student,wanted a different size
+2026-11-20,14:16,hair clip,hair,y,n,30,local,customer will visit later
+2026-11-20,14:21,comb,hair,y,n,20,local,
+2026-11-20,14:22,designer bindi,bindi,y,y,35,local,
+2026-11-20,14:28,maroon bindi,bindi,y,n,15,student,size not there
+2026-11-20,14:31,rubber band pack,hair,y,y,20,student,
+2026-11-20,14:32,glass bangle 2.4,bangle,y,y,40,local,
+2026-11-20,14:42,lip balm,makeup,y,y,45,student,
+2026-11-20,14:47,mehndi cone,beauty,y,y,25,local,price confirmed
+2026-11-20,14:49,hair pin pack,hair,y,y,10,local,customer checked the design
+2026-11-20,14:50,claw clip,hair,y,n,50,student,
+2026-11-20,14:53,face powder,makeup,y,n,75,local,price confirmed
+2026-11-20,14:56,face powder,makeup,n,n,75,student,customer will visit later
+2026-11-20,14:57,jhumka,jewellery,y,y,120,student,
+2026-11-20,15:12,sindoor,makeup,y,y,25,student,customer checked the design
+2026-11-20,15:13,hair pin pack,hair,y,y,15,local,customer checked the design
+2026-11-20,15:18,nail polish,makeup,y,n,40,student,wanted a different size
+2026-11-20,15:24,jhumka,jewellery,y,y,115,student,customer checked the design
+2026-11-20,15:37,glass bangle 2.6,bangle,y,y,45,student,customer checked the design
+2026-11-20,15:40,hair pin pack,hair,n,n,15,student,out of stock
+2026-11-20,15:41,sindoor,makeup,y,n,25,student,size not there
+2026-11-20,15:43,lip balm,makeup,y,n,45,student,customer will visit later
+2026-11-20,15:44,safety pin pack,accessories,y,y,10,local,customer checked the design
+2026-11-20,15:57,scrunchie,hair,y,y,40,student,
+2026-11-20,16:06,sindoor,makeup,y,n,25,local,bought after checking designs
+2026-11-20,16:10,jhumka,jewellery,y,y,120,student,
+2026-11-20,16:15,safety pin pack,accessories,y,n,10,student,student asked for discount
+2026-11-20,16:20,dupatta pin,accessories,y,y,20,student,
+2026-11-20,16:22,claw clip,hair,n,n,50,student,customer asked for another colour
+2026-11-20,16:25,glass bangle 2.4,bangle,y,y,40,local,price confirmed
+2026-11-20,16:27,kajal,makeup,n,n,55,student,customer will visit later
+2026-11-20,16:27,face powder,makeup,n,n,75,local,out of stock
+2026-11-20,16:34,rubber band pack,hair,y,n,20,student,out of stock
+2026-11-20,16:36,lip balm,makeup,y,n,45,local,wanted a different size
+2026-11-20,16:45,comb,hair,y,y,40,local,price confirmed
+2026-11-20,16:55,black bindi,bindi,y,y,25,local,
+2026-11-20,16:55,glass bangle 2.6,bangle,n,n,45,local,out of stock
+2026-11-20,16:59,dupatta pin,accessories,n,n,20,student,size not there
+2026-11-20,17:09,mehndi cone,beauty,y,n,25,student,price confirmed
+2026-11-20,17:15,dupatta pin,accessories,y,y,25,local,
+2026-11-20,17:18,hair pin pack,hair,y,y,15,local,price confirmed
+2026-11-20,17:22,small earrings,jewellery,y,y,65,local,customer checked the design
+2026-11-20,17:23,mangalsutra,jewellery,y,n,150,student,
+2026-11-20,17:28,safety pin pack,accessories,y,y,10,local,
