@@ -215,5 +215,58 @@ class CliTests(TempDirTest):
                 main(["report", "--file", str(self.csv), "--min-misses", bad])
 
 
+
+class RobustnessTests(TempDirTest):
+    def test_missing_folder_is_clean_error_not_traceback(self):
+        code, _, err = run("add", "--file", str(self.dir / "nope" / "data.csv"),
+                           "--item", "a", "--in-stock", "n", "--date", D, "--time", "10:00")
+        self.assertEqual(code, 2)
+        self.assertIn("Error:", err)
+
+    def test_empty_file_report_and_add(self):
+        self.write("")
+        code, out, _ = run("--file", str(self.csv))
+        self.assertEqual(code, 0)
+        self.assertIn("No usable rows", out)
+        code, _, _ = run("add", "--file", str(self.csv), "--item", "a", "--in-stock", "n",
+                         "--date", D, "--time", "10:00")
+        self.assertEqual(code, 0)
+        self.assertTrue(self.csv.read_text(encoding="utf-8").startswith(HEADER))
+        self.assertEqual(len(read_requests(self.csv)[0]), 1)
+
+    def test_blank_lines_before_header(self):
+        self.write("\n\n" + HEADER + f"{D},16:05,a,bindi,n,n,,,\n{D},99:00,b,bindi,n,n,,,\n")
+        good, bad = read_requests(self.csv)
+        self.assertEqual(len(good), 1)
+        self.assertEqual(bad[0][0], 5)  # real line number in the file
+        append_request(self.csv, good[0])
+        self.assertEqual(len(read_requests(self.csv)[0]), 2)
+        aliases = self.write("\nalias,item\nkaali bindi,black bindi\n", "aliases.csv")
+        self.assertEqual(store.load_aliases(aliases), {"kaali bindi": "black bindi"})
+
+    def test_hindi_item_round_trip(self):
+        code, _, _ = run("add", "--file", str(self.csv), "--item", "काजल",
+                         "--in-stock", "n", "--date", D, "--time", "10:00")
+        self.assertEqual(code, 0)
+        code, out, _ = run("--file", str(self.csv), "--aliases", str(self.dir / "none.csv"))
+        self.assertEqual(code, 0)
+        self.assertIn("काजल", out)
+
+    def test_exponent_price_saved_plainly(self):
+        run("add", "--file", str(self.csv), "--item", "a", "--in-stock", "n", "--price", "1e3",
+            "--date", D, "--time", "10:00")
+        self.assertIn(",1000,", self.csv.read_text(encoding="utf-8"))
+
+    def test_interactive_second_row_does_not_reuse_time_flag(self):
+        from tracker.cli import build_parser, cmd_add
+        answers = iter(["a", "1", "n", "", "4", "", "y",              # row 1 (time from --time)
+                        "11:30", "b", "1", "n", "", "4", "", "n"])   # row 2 asks time again
+        args = build_parser().parse_args(["add", "--file", str(self.csv), "--date", D, "--time", "10:00"])
+        with contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(cmd_add(args, input_fn=lambda _: next(answers)), 0)
+        good, _ = read_requests(self.csv)
+        self.assertEqual([r.when.strftime("%H:%M") for r in good], ["10:00", "11:30"])
+
+
 if __name__ == "__main__":
     unittest.main()

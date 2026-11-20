@@ -155,6 +155,11 @@ def cmd_add(args, input_fn: Callable[[str], str] = input) -> int:
 
         if flags_given or not parse_yes_no(_ask_yn("Another?", input_fn, "y")):
             return EXIT_OK
+        # The next customer is a new request: ask everything again rather than reusing
+        # this row's --time/--item/... (only --date and --file carry over).
+        for name in ("time", "item", "category", "in_stock", "bought", "price", "customer_type"):
+            setattr(args, name, None)
+        args.note = ""
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
@@ -162,10 +167,18 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     if not argv or (argv[0].startswith("-") and argv[0] not in ("-h", "--help", "--version")):
         argv.insert(0, "report")
     args = build_parser().parse_args(argv)
+    for stream in (sys.stdout, sys.stderr):
+        # Redirected output (`> report.txt`) defaults to the Windows code page, which can't
+        # print Hindi item names and would crash *after* a row was saved. Write UTF-8 instead.
+        if hasattr(stream, "reconfigure") and not stream.isatty():
+            stream.reconfigure(encoding="utf-8", errors="replace")
     try:
         return {"report": cmd_report, "add": cmd_add, "check": cmd_check}[args.cmd](args)
     except DataFileError as e:
         print(f"Error: {e}", file=sys.stderr)
+        return EXIT_ERROR
+    except OSError as e:  # missing folder, file locked by Excel, no permission, disk full...
+        print(f"Error: {e.filename or args.file}: {e.strerror or e}", file=sys.stderr)
         return EXIT_ERROR
     except (KeyboardInterrupt, EOFError):
         print("\nStopped. Rows already saved are kept.", file=sys.stderr)

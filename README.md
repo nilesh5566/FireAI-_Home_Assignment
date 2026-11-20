@@ -64,7 +64,7 @@ tracker/validate.py  every input is checked here (one place to change rules)
 tracker/store.py     safe CSV read/append
 tracker/report.py    the maths
 tracker/cli.py       commands and prompts
-tests/               33 unit tests
+tests/               39 unit tests
 SECURITY.md          threat model and the defences in the code
 ```
 

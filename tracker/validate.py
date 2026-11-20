@@ -197,7 +197,7 @@ def to_csv_row(req: Request) -> list[str]:
         req.category,
         "y" if req.in_stock else "n",
         "y" if req.bought else "n",
-        "" if req.price is None else str(req.price),
+        "" if req.price is None else format(req.price, "f"),  # 1e3 -> 1000, not 1E+3
         req.customer_type,
         escape_formula(req.note),
     ]

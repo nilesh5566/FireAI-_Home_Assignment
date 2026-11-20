@@ -50,8 +50,11 @@ def _read_dicts(path: Path, required: Iterable[str]):
     """Yield (line_no, row) from a CSV after header and limit checks."""
     _check_path(path)
     csv.field_size_limit(MAX_FIELD_CHARS)
+    if path.stat().st_size == 0:  # brand-new empty file: no rows yet, not an error
+        return
     try:
         with path.open("r", encoding="utf-8-sig", newline="") as f:  # -sig: Excel BOM
+            skipped = _skip_blank_lines(f)
             reader = csv.DictReader(f)
             header = [(h or "").strip().lower() for h in (reader.fieldnames or [])]
             if len(set(header)) != len(header):
@@ -63,7 +66,7 @@ def _read_dicts(path: Path, required: Iterable[str]):
             for n, row in enumerate(reader, start=1):
                 if n > MAX_ROWS:
                     raise DataFileError(f"{path}: more than {MAX_ROWS} rows")
-                yield reader.line_num, row
+                yield reader.line_num + skipped, row
     except UnicodeDecodeError:
         raise DataFileError(f"{path}: not UTF-8 text (save it as 'CSV UTF-8')") from None
     except csv.Error as e:
@@ -100,8 +103,21 @@ def load_aliases(path: Path) -> dict[str, str]:
     return aliases
 
 
+def _skip_blank_lines(f) -> int:
+    """Move past blank lines before the header (editors sometimes leave one); return how many."""
+    n = 0
+    while True:
+        pos = f.tell()
+        line = f.readline()
+        if line == "" or line.strip():
+            f.seek(pos)
+            return n
+        n += 1
+
+
 def _header_ok(path: Path) -> bool:
     with path.open("r", encoding="utf-8-sig", newline="") as f:
+        _skip_blank_lines(f)
         first = next(csv.reader(f), [])
     return [c.strip().lower() for c in first] == list(COLUMNS)
 
@@ -125,6 +141,10 @@ def append_request(path: Path, req: Request) -> None:
         writer.writerow(COLUMNS)
         flags = os.O_WRONLY | os.O_CREAT | os.O_EXCL | _O_NOFOLLOW
         mode = 0o600
+    elif path.stat().st_size == 0:  # empty file (e.g. created by hand): start it with the header
+        writer.writerow(COLUMNS)
+        flags = os.O_WRONLY | os.O_APPEND | _O_NOFOLLOW
+        mode = 0
     else:
         if not _header_ok(path):
             raise DataFileError(f"{path}: header doesn't match {','.join(COLUMNS)}; not appending")
