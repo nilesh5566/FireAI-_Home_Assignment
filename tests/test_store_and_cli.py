@@ -7,7 +7,7 @@ import os
 import stat
 import tempfile
 import unittest
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 from tracker import store
@@ -17,7 +17,7 @@ from tracker.store import DataFileError, append_request, read_requests
 from tracker.validate import COLUMNS, parse_row
 
 HEADER = ",".join(COLUMNS) + "\n"
-D = date.today().isoformat()
+D = (date.today() - timedelta(days=1)).isoformat()  # yesterday: times are never "future"
 
 
 def run(*argv):
@@ -55,7 +55,7 @@ class StoreTests(TempDirTest):
         self.assertIn("more cells", bad[0][1][0])
 
     def test_excel_bom_ok(self):
-        self.write("﻿" + HEADER + f"{D},16:05,a,bindi,n,n,,,\n")
+        self.write("\ufeff" + HEADER + f"{D},16:05,a,bindi,n,n,,,\n")
         self.assertEqual(len(read_requests(self.csv)[0]), 1)
 
     def test_rejects_bad_files(self):
@@ -153,12 +153,26 @@ class CliTests(TempDirTest):
     def test_add_flags_then_json_report(self):
         for t in ("16:05", "16:40"):
             code, _, _ = run("add", "--file", str(self.csv), "--item", "black bindi",
-                             "--in-stock", "n", "--bought", "n", "--price", "20", "--time", t)
+                             "--in-stock", "n", "--bought", "n", "--price", "20", "--time", t, "--date", D)
             self.assertEqual(code, 0)
         code, out, _ = run("report", "--file", str(self.csv), "--json")
         data = json.loads(out)
         self.assertEqual(data["reorder"], ["black bindi"])
         self.assertEqual(data["missed"][0]["est_lost"], 40.0)
+
+    def test_add_flags_not_in_stock_needs_no_bought(self):
+        from tracker.cli import build_parser, cmd_add
+        args = build_parser().parse_args(["add", "--file", str(self.csv), "--item", "black bindi",
+                                          "--in-stock", "n", "--time", "16:05", "--date", D])
+
+        def no_prompt(prompt):
+            raise AssertionError(f"unexpected prompt: {prompt}")
+
+        with contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(cmd_add(args, input_fn=no_prompt), 0)
+        good, _ = read_requests(self.csv)
+        self.assertEqual(len(good), 1)
+        self.assertFalse(good[0].bought)
 
     def test_add_invalid_not_saved(self):
         code, _, err = run("add", "--file", str(self.csv), "--item", "x",
@@ -173,7 +187,7 @@ class CliTests(TempDirTest):
             "16:10", "", "1", "maybe", "y", "", "4", "", "y",  # 'maybe' re-asked; empty item -> rejected
             "16:11", "glass bangle 2.6", "2", "n", "45", "1", "size not there", "n",
         ])
-        args = build_parser().parse_args(["add", "--file", str(self.csv)])
+        args = build_parser().parse_args(["add", "--file", str(self.csv), "--date", D])
         with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
             self.assertEqual(cmd_add(args, input_fn=lambda _: next(answers)), 0)
         good, _ = read_requests(self.csv)

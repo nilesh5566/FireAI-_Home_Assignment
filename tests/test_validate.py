@@ -1,7 +1,7 @@
 """Unit tests for validation. Rows here are synthetic test inputs, not shop data."""
 
 import unittest
-from datetime import date
+from datetime import date, datetime
 from decimal import Decimal
 
 from tracker.validate import ValidationError, clean_text, escape_formula, parse_row, to_csv_row
@@ -54,6 +54,17 @@ class ParseRowTests(unittest.TestCase):
         for name, r in cases.items():
             with self.subTest(name), self.assertRaises(ValidationError):
                 parse_row(r, today=TODAY)
+
+    def test_rejects_time_later_than_now(self):
+        now = datetime(2026, 11, 20, 16, 24)
+        parse_row(row(time="16:27"), today=TODAY, now=now)  # within clock skew: ok
+        with self.assertRaisesRegex(ValidationError, "later than now"):
+            parse_row(row(time="17:28"), today=TODAY, now=now)
+        parse_row(row(date="2026-11-19", time="17:28"), today=TODAY, now=now)  # yesterday: ok
+
+    def test_category_synonyms(self):
+        self.assertEqual(parse_row(row(category="Makeup"), today=TODAY).category, "cosmetic")
+        self.assertEqual(parse_row(row(category="jewellery"), today=TODAY).category, "jewellery")
 
     def test_missing_keys_do_not_crash(self):
         with self.assertRaises(ValidationError):

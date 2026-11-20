@@ -10,7 +10,8 @@ import re
 import unicodedata
 from collections.abc import Mapping
 from dataclasses import dataclass
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
+from datetime import time as dtime
 from decimal import Decimal, InvalidOperation
 from typing import Optional
 
@@ -18,7 +19,11 @@ COLUMNS = ("date", "time", "item", "category", "in_stock", "bought",
            "price_rs", "customer_type", "note")
 REQUIRED = ("date", "time", "item", "in_stock", "bought")
 
-CATEGORIES = ("bindi", "bangle", "cosmetic", "hair", "stationery", "other")
+CATEGORIES = ("bindi", "bangle", "jewellery", "cosmetic", "hair", "accessories", "stationery", "other")
+# common words people type -> the category the report uses
+CATEGORY_SYNONYMS = {"makeup": "cosmetic", "beauty": "cosmetic", "cosmetics": "cosmetic",
+                     "jewelry": "jewellery", "accessory": "accessories", "chudi": "bangle"}
+CLOCK_SKEW = timedelta(minutes=5)  # allow a slightly fast/slow phone clock
 CUSTOMER_TYPES = ("student", "local", "other")
 
 MAX_ITEM_LEN = 60
@@ -90,9 +95,16 @@ def parse_yes_no(value: Optional[str]) -> Optional[bool]:
     return None
 
 
-def parse_row(raw: Mapping[str, Optional[str]], today: Optional[date] = None) -> Request:
-    """Turn one raw row into a Request, or raise ValidationError listing every problem."""
-    today = today or date.today()
+def parse_row(raw: Mapping[str, Optional[str]], today: Optional[date] = None,
+              now: Optional[datetime] = None) -> Request:
+    """Turn one raw row into a Request, or raise ValidationError listing every problem.
+
+    `today` / `now` are injectable for tests. A request can't be logged before it happened,
+    so anything later than `now` (plus small clock skew) is rejected.
+    """
+    if now is None:
+        now = datetime.now() if today is None else datetime.combine(today, dtime.max)
+    today = today or now.date()
     problems: list[str] = []
 
     def text(field: str, max_len: int) -> str:
@@ -127,6 +139,7 @@ def parse_row(raw: Mapping[str, Optional[str]], today: Optional[date] = None) ->
 
     # category / customer type (optional, but must be from the list)
     category = text("category", 20).lower() or "other"
+    category = CATEGORY_SYNONYMS.get(category, category)
     if category not in CATEGORIES:
         problems.append(f"category='{category}' not one of {', '.join(CATEGORIES)}")
     customer_type = text("customer_type", 20).lower()
@@ -157,6 +170,11 @@ def parse_row(raw: Mapping[str, Optional[str]], today: Optional[date] = None) ->
             problems.append(f"price_rs='{p_raw}' is not a number")
 
     note = text("note", MAX_NOTE_LEN)
+
+    if d is not None and m is not None and d == today:
+        logged = datetime(d.year, d.month, d.day, int(m.group(1)), int(m.group(2)))
+        if logged > now + CLOCK_SKEW:
+            problems.append(f"time {t_raw} is later than now ({now:%H:%M})")
 
     if problems:
         raise ValidationError(problems)

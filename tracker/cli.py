@@ -113,7 +113,10 @@ def _ask_yn(prompt: str, input_fn: Callable[[str], str], default: Optional[str] 
 
 
 def cmd_add(args, input_fn: Callable[[str], str] = input) -> int:
-    flags_given = args.item is not None and args.in_stock is not None and args.bought is not None
+    # Quick one-line mode: item + in-stock, plus bought unless the item wasn't in stock
+    # (nothing to buy then, so bought is saved as n below).
+    flags_given = (args.item is not None and args.in_stock is not None
+                   and (args.bought is not None or parse_yes_no(args.in_stock) is False))
     while True:
         now = datetime.now()
         raw = {
