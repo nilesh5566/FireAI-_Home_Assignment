@@ -1,1 +1,101 @@
-date,time,item,category,in_stock,bought,price_rs,customer_type,note
+date,time,item,category,in_stock,bought,price,customer_type,note
+20-11-2026,11:30,sindur,sindoor,n,n,45,local,Out of stock
+20-11-2026,11:32,ear rings,earrings,y,y,180,student,
+20-11-2026,11:36,chudi set,bangles,y,y,160,student,
+20-11-2026,11:36,nail paints,nail polish,n,n,70,student,Price check only
+20-11-2026,11:42,claw clips,claw clip,y,y,50,local,
+20-11-2026,11:49,dupatta pins,dupatta pin,n,n,35,student,Price check only
+20-11-2026,11:50,clip,hair clip,y,y,30,local,Asked for gift wrap
+20-11-2026,11:52,kajal pencil,kajal,y,n,110,student,Looking for another design
+20-11-2026,11:53,hair clips,hair clip,n,n,30,student,Out of stock
+20-11-2026,11:55,rubber bands,rubber band,y,n,25,student,Price check only
+20-11-2026,11:56,mehndi,mehndi cone,n,n,25,student,Looking for another design
+20-11-2026,11:56,sindur,sindoor,y,y,90,student,Cash payment
+20-11-2026,11:58,rubber bands,rubber band,y,y,25,local,UPI payment
+20-11-2026,11:59,jhumkas,jhumka,y,y,240,local,Regular customer
+20-11-2026,12:00,earring,earrings,y,y,60,student,Asked for gift wrap
+20-11-2026,12:03,nail paints,nail polish,y,y,70,local,
+20-11-2026,12:06,sindur,sindoor,y,y,90,student,
+20-11-2026,12:06,bangles,bangles,y,y,160,student,Asked for gift wrap
+20-11-2026,12:23,black bindis,bindi,y,y,40,local,Regular customer
+20-11-2026,12:27,safety pins,safety pin,y,y,15,local,Asked for gift wrap
+20-11-2026,12:27,hair clips,hair clip,y,y,30,local,Cash payment
+20-11-2026,12:31,kaali bindi,bindi,y,y,20,local,UPI payment
+20-11-2026,12:34,hair pins,hair pin,y,y,20,student,
+20-11-2026,12:36,safety pins,safety pin,y,y,15,local,UPI payment
+20-11-2026,12:43,kaali bindi,bindi,n,n,20,local,
+20-11-2026,12:43,sindur,sindoor,y,y,45,local,Asked for gift wrap
+20-11-2026,12:44,hair pins,hair pin,n,n,20,student,Price check only
+20-11-2026,12:49,bangles,bangles,y,y,80,local,Asked for gift wrap
+20-11-2026,12:50,bangles,bangles,y,y,80,student,
+20-11-2026,12:51,kajal pencil,kajal,n,n,110,student,Will come back
+20-11-2026,12:57,chudi,bangles,n,n,80,local,Price check only
+20-11-2026,12:59,ear rings,earrings,y,y,120,student,Cash payment
+20-11-2026,13:01,dupatta pins,dupatta pin,y,y,35,local,
+20-11-2026,13:03,kajal pencil,kajal,y,y,110,local,
+20-11-2026,13:04,nail colour,nail polish,y,y,70,local,Cash payment
+20-11-2026,13:06,bindi black,bindi,y,y,20,student,UPI payment
+20-11-2026,13:11,lipbalm,lip balm,n,n,90,student,Will come back
+20-11-2026,13:11,ear rings,earrings,y,y,120,local,Regular customer
+20-11-2026,13:12,safety pins,safety pin,y,y,15,student,Regular customer
+20-11-2026,13:17,claw clips,claw clip,y,y,50,local,UPI payment
+20-11-2026,13:17,earring,earrings,y,y,60,student,
+20-11-2026,13:18,black tikli,bindi,y,y,20,student,UPI payment
+20-11-2026,13:18,earring,earrings,n,n,60,student,Looking for another design
+20-11-2026,13:19,hair claw,claw clip,n,n,50,student,Looking for another design
+20-11-2026,13:22,black tikli,bindi,n,n,20,student,Looking for another design
+20-11-2026,13:25,nail paints,nail polish,y,n,70,student,Out of stock
+20-11-2026,13:27,bangles,bangles,y,n,80,student,
+20-11-2026,13:28,dupatta pins,dupatta pin,y,y,105,student,Cash payment
+20-11-2026,13:30,jhumkas,jhumka,y,y,120,local,Regular customer
+20-11-2026,13:32,black bindis,bindi,y,y,20,student,Cash payment
+20-11-2026,13:33,lipbalm,lip balm,y,y,90,student,UPI payment
+20-11-2026,13:35,earring,earrings,n,n,60,student,Will come back
+20-11-2026,13:35,chudi,bangles,y,y,80,local,Regular customer
+20-11-2026,13:35,kaali bindi,bindi,n,n,20,local,
+20-11-2026,13:37,black tikli,bindi,y,y,20,student,UPI payment
+20-11-2026,13:38,earring,earrings,y,y,60,local,Cash payment
+20-11-2026,13:39,earring,earrings,n,n,60,local,Price check only
+20-11-2026,13:41,nail paints,nail polish,n,n,70,student,Will come back
+20-11-2026,13:41,hair pins,hair pin,y,y,20,student,Asked for gift wrap
+20-11-2026,13:41,hair pins,hair pin,n,n,20,student,
+20-11-2026,13:42,bangles,bangles,y,y,80,local,UPI payment
+20-11-2026,13:43,dupatta pins,dupatta pin,n,n,35,student,
+20-11-2026,13:44,nail paints,nail polish,n,n,70,student,Will come back
+20-11-2026,13:47,black tika,bindi,y,y,20,student,UPI payment
+20-11-2026,13:50,sindur,sindoor,y,y,45,local,Regular customer
+20-11-2026,13:51,pin pack,hair pin,n,n,20,local,Price check only
+20-11-2026,13:52,hair pins,hair pin,n,n,20,local,Out of stock
+20-11-2026,13:52,black tika,bindi,n,n,20,local,Looking for another design
+20-11-2026,13:54,hair pins,hair pin,y,y,20,student,Cash payment
+20-11-2026,13:56,glass bangle,bangles,y,y,80,student,Asked for gift wrap
+20-11-2026,13:57,glass bangles 2.6,bangles,n,n,80,local,Price check only
+20-11-2026,13:57,dupatta pins,dupatta pin,y,y,70,student,
+20-11-2026,13:59,glass bangle,bangles,y,y,80,local,UPI payment
+20-11-2026,14:00,hair rubber band,rubber band,n,n,25,local,Out of stock
+20-11-2026,14:03,clip,hair clip,y,y,30,student,Cash payment
+20-11-2026,14:03,bindi black,bindi,y,y,20,student,Asked for gift wrap
+20-11-2026,14:07,chudi set,bangles,y,y,160,student,UPI payment
+20-11-2026,14:09,hair pins,hair pin,n,n,20,local,Price check only
+20-11-2026,14:09,safety pins,safety pin,y,y,15,student,Asked for gift wrap
+20-11-2026,14:13,lipbalm,lip balm,y,y,90,student,Asked for gift wrap
+20-11-2026,14:15,hair rubber band,rubber band,y,n,25,student,Price check only
+20-11-2026,14:15,hair claw,claw clip,y,y,50,student,Regular customer
+20-11-2026,14:21,lipbalm,lip balm,y,y,90,student,Cash payment
+20-11-2026,14:23,rubber bands,rubber band,y,y,25,local,Regular customer
+20-11-2026,14:25,mehndi,mehndi cone,y,y,25,student,Regular customer
+20-11-2026,14:30,kaali bindi,bindi,y,y,20,local,Asked for gift wrap
+20-11-2026,14:30,black bindis,bindi,y,y,20,student,Asked for gift wrap
+20-11-2026,14:31,safety pins,safety pin,y,y,15,local,Asked for gift wrap
+20-11-2026,14:33,nail colour,nail polish,y,y,70,local,Regular customer
+20-11-2026,14:33,pin pack,hair pin,n,n,20,student,Price check only
+20-11-2026,14:35,mehendi cone,mehndi cone,y,y,25,student,UPI payment
+20-11-2026,14:37,earring,earrings,y,y,120,student,
+20-11-2026,14:40,chudi set,bangles,y,y,80,student,UPI payment
+20-11-2026,14:42,bindi black,bindi,y,y,20,local,
+20-11-2026,14:42,earring,earrings,y,y,60,local,
+20-11-2026,14:46,earring,earrings,y,y,60,local,Cash payment
+20-11-2026,14:46,hair pins,hair pin,n,n,20,local,Price check only
+20-11-2026,14:47,earring,earrings,y,y,60,student,Asked for gift wrap
+20-11-2026,14:48,sindur,sindoor,n,n,45,student,Out of stock
+20-11-2026,14:50,ear rings,earrings,y,y,60,student,Asked for gift wrap
