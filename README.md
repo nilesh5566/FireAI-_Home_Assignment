@@ -80,7 +80,4 @@ Covered: formula injection, invisible Unicode, oversized files and fields, symli
 - "Lost money" is the average quoted price × the number of misses. Some of those customers would have bought a substitute.
 - It counts *requests*, not *people*. One customer asking twice counts twice.
 - Free-text item names need `aliases.csv` to merge spellings.
-- ___ (add what you actually notice)
 
-## Screen recording
-[3-minute demo](link)
