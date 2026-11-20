@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv/
+.ruff_cache/
+.DS_Store
+# keep data.csv and photos/ committed - they are the evidence

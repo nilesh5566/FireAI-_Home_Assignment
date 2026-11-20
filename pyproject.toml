@@ -1,0 +1,21 @@
+[project]
+name = "shringar-missed-sales"
+version = "1.0.0"
+description = "Missed-sales tracker for Priya Shringar Kendra, IIIT Road, Jhalwa"
+requires-python = ">=3.9"
+dependencies = []   # standard library only: nothing to supply-chain-attack
+
+[tool.ruff]
+target-version = "py39"
+line-length = 120
+
+[tool.ruff.lint]
+# E/W/F: errors, I: imports, B: bugbear, S: bandit security rules, UP: modern syntax
+select = ["E", "W", "F", "I", "B", "S", "UP"]
+ignore = ["UP007", "UP045"]  # keep Optional[...] readable on 3.9
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101"]  # assert is fine in tests
+
+[tool.bandit]
+exclude_dirs = ["tests"]

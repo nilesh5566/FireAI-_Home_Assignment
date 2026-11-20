@@ -1,0 +1,35 @@
+name: ci
+
+on: [push, pull_request]
+
+permissions:
+  contents: read   # least privilege for the workflow token
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.9", "3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Unit tests
+        run: python -m unittest discover -s tests -t . -v
+      - name: Validate committed data
+        run: python reorder.py check
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install "bandit[toml]==1.9.4" "ruff==0.14.*"
+      - name: Lint (includes flake8-bandit S rules)
+        run: ruff check .
+      - name: Bandit static security scan
+        run: bandit -c pyproject.toml -r tracker reorder.py
