@@ -44,3 +44,4 @@ Write down 3 things they said **in their own words**, plus the 1 thing that surp
 
 ## Then
 - Run `python reorder.py` and **show the owner the output**. What they say about it is good material for reflection.md.
+- - #Video:https://drive.google.com/file/d/1RDw0EpUpZ6dJCdcjiNd9A923quaSRAlp/view?usp=sharing
