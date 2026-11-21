@@ -4,3 +4,5 @@ __pycache__/
 .ruff_cache/
 .DS_Store
 # keep data.csv and photos/ committed - they are the evidence
+# screen recording is too big for GitHub (100 MB limit): host it and link it in README
+*.mp4
