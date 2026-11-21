@@ -65,6 +65,8 @@ class ParseRowTests(unittest.TestCase):
     def test_category_synonyms(self):
         self.assertEqual(parse_row(row(category="Makeup"), today=TODAY).category, "cosmetic")
         self.assertEqual(parse_row(row(category="jewellery"), today=TODAY).category, "jewellery")
+        self.assertEqual(parse_row(row(category="Hair Accessories"), today=TODAY).category, "hair")
+        self.assertEqual(parse_row(row(category="gift items"), today=TODAY).category, "other")
 
     def test_missing_keys_do_not_crash(self):
         with self.assertRaises(ValidationError):

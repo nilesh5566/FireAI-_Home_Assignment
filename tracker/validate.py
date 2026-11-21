@@ -22,7 +22,9 @@ REQUIRED = ("date", "time", "item", "in_stock", "bought")
 CATEGORIES = ("bindi", "bangle", "jewellery", "cosmetic", "hair", "accessories", "stationery", "other")
 # common words people type -> the category the report uses
 CATEGORY_SYNONYMS = {"makeup": "cosmetic", "beauty": "cosmetic", "cosmetics": "cosmetic",
-                     "jewelry": "jewellery", "accessory": "accessories", "chudi": "bangle"}
+                     "jewelry": "jewellery", "accessory": "accessories", "chudi": "bangle",
+                     "hair accessories": "hair", "hair accessory": "hair",
+                     "gift items": "other", "gift item": "other", "gifts": "other"}
 CLOCK_SKEW = timedelta(minutes=5)  # allow a slightly fast/slow phone clock
 CUSTOMER_TYPES = ("student", "local", "other")
 
