@@ -1,6 +1,6 @@
 # Fieldwork
 
-**Place:** Priya Shringar Kendra, 4, IIIT Rd, Jhalwa, Prayagraj 211015
+**Place:** Priya Shringar Sadan, 4, IIIT Rd, Jhalwa, Prayagraj 211015
 **Date / time on site:** 2026-11-__, __:__ to __:__
 
 ## Photos

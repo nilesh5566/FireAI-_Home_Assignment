@@ -1,8 +1,8 @@
-# Missed-sales tracker: Priya Shringar Kendra, IIIT Road, Jhalwa
+# Missed-sales tracker: Priya Shringar Sadan, IIIT Road, Jhalwa
 
 ![ci](../../actions/workflows/ci.yml/badge.svg)
 
-**Who it's for:** ___ (owner), Priya Shringar Kendra, 4 IIIT Rd, Jhalwa, Prayagraj 211015.
+**Who it's for:** ___ (owner), Priya Shringar Sadan, 4 IIIT Rd, Jhalwa, Prayagraj 211015.
 **Problem:** customers ask for items the shop doesn't stock, and those requests are never written down, so they never get reordered.
 **What it does:** you log each request at the counter in about 10 seconds. The report shows what was missed, roughly how much money that cost, a reorder checklist, and the busiest hours.
 

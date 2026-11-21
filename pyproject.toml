@@ -1,7 +1,7 @@
 [project]
 name = "shringar-missed-sales"
 version = "1.0.0"
-description = "Missed-sales tracker for Priya Shringar Kendra, IIIT Road, Jhalwa"
+description = "Missed-sales tracker for Priya Shringar Sadan, IIIT Road, Jhalwa"
 requires-python = ">=3.9"
 dependencies = []   # standard library only: nothing to supply-chain-attack
 
