@@ -122,4 +122,4 @@ Covered: formula injection, invisible Unicode, oversized files and fields, symli
 - Free-text item names need `aliases.csv` to merge spellings.
 
 ## Screen recording
-[3-minute demo](https://drive.google.com/file/d/1RDw0EpUpZ6dJCdcjiNd9A923quaSRAlp/view?usp=sharing)
+[3-minute demo](https://drive.google.com/file/d/1oERbwV_61Q42jVSgQj0slO4aWckz3EDE/view?usp=sharing)
