@@ -4,8 +4,8 @@
 **Date / time on site:** 2026-11-__, __:__ to __:__
 
 ## Photos
-- `photos/1_shopfront_HHMM.jpg`: taken at __:__
-- `photos/2_logging_HHMM.jpg`: taken at __:__
+- `photos/img06.png`: shopfront signboard, taken at __:__
+- `photos/img01.png` to `img05.png`: inside the shop, taken at __:__
 
 ## Conversation
 - **Name / role:** ___
