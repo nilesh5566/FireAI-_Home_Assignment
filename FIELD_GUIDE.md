@@ -3,6 +3,17 @@
 ## Before you start
 - Ask the owner first: "I'm a student doing a college project. Can I sit here for an hour and note down what customers ask for? I won't take any names." Note the owner's **name** and their role (owner, son, helper).
 - Take **photo 1**: the shop front with a clock or your phone's time visible.
+- ![Image 1](photos/img01%20-%20Copy.png)
+
+![Image 2](photos/img02%20-%20Copy.png)
+
+![Image 3](photos/img03%20-%20Copy.png)
+
+![Image 4](photos/img04.png)
+
+![Image 5](photos/img05.png)
+
+![Image 6](photos/img06%20-%20Copy.png)
 
 ## Logging (aim for 60–90 min, 25+ rows)
 For every customer request, write one line in a notebook immediately:
