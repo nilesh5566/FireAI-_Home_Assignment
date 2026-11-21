@@ -7,6 +7,18 @@
 - `photos/img06.png`: shopfront signboard, taken at __:__
 - `photos/img01.png` to `img05.png`: inside the shop, taken at __:__
 
+![Shopfront](photos/img06.png)
+
+![Inside the shop 1](photos/img01.png)
+
+![Inside the shop 2](photos/img02.png)
+
+![Inside the shop 3](photos/img03.png)
+
+![Inside the shop 4](photos/img04.png)
+
+![Inside the shop 5](photos/img05.png)
+
 ## Conversation
 - **Name / role:** ___
 - **3 things they said:**
